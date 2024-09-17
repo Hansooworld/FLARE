@@ -82,6 +82,12 @@ body {
   display: inline-block;
 }
 
+.author-university-block {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
 .publication-banner img {
 }
 
