@@ -9,7 +9,7 @@
   <meta property="og:description" content="details about the paper `FLARE`"/>
   <meta property="og:url" content="https://hansooworld.github.io/flare/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="assets/images/fig_overview.png" />
+  <meta property="og:image" content="assets/images/fig_framework_overview.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
@@ -63,8 +63,6 @@
   </script>
 </head>
 <body>
-
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -74,7 +72,8 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://www.linkedin.com/" target="_blank">Sunghyun Park</a><sup>1</sup>,  
+                <!-- <a href="https://www.linkedin.com/" target="_blank">Sunghyun Park</a><sup>1</sup>,   -->
+                Sunghyun Park<sup>1</sup>,
                 Yoonbyung Chai</<sup>1</sup>,  
                 Seungyup Ka<sup>1</sup>,  
                 Hyeonseong Kim<sup>1</sup>,  
@@ -179,61 +178,161 @@
 </section>
 <!-- End of Framework Overview -->
 
+<hr>
+
 <!-- Simulation Experiments Videos -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Simulation Experiments</h2>
-      <div id="module">
-        <div id="sim-results">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="assets/videos/video_4.mp4" type="video/mp4">
+      <p class = "description-text" style="text-align: justify;">
+        <b>FLARE</b> successfully demonstrates rapid adaptation to various leg configurations in simulation using learned locomotion strategies.
+        For the Five Legs and Four Legs scenarios, the video shows a comparison at 10% of the training progress, while for the Three Legs scenario, the comparison is made at 50%. 
+        In the videos, the agent trained with our proposed method rapidly adapts and achieves stable locomotion, whereas the comparison methods fail to demonstrate effective walking behavior.      
+      </p>
+      <!-- 2x3 동영상 그리드 시작 -->
+      <div class="columns is-multiline">
+        <!-- 첫 번째 행 -->
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">OURS - Five Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video1" autoplay controls muted loop width="100%">
+            <source src="assets/videos/our_5_100.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
-          <h2 class="content has-text-justified" style="text-align: left;">
-            <!-- User interaction with the proposed system SPOTS. The user selects among the candidates, provided with a close consideration of stability and reasonableness, in an interactive viewer. SPOTS recommends the placement candidates based on the prompt of the task. -->
-          </h2>
+        </div>
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">OURS - Four Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video2" autoplay controls muted loop width="100%">
+            <source src="assets/videos/our_4_100.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">OURS - Three Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video3" autoplay controls muted loop width="100%">
+            <source src="assets/videos/our_3_500_from_4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 두 번째 행 -->
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">Baseline - Five Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video4" autoplay controls muted loop width="100%">
+            <source src="assets/videos/baseline_5_100.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">Baseline - Four Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video5" autoplay controls muted loop width="100%">
+            <source src="assets/videos/baseline_4_100.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="column is-one-third">
+          <h4 class="title is-5 has-text-centered">Baseline - Three Legs</h4> <!-- 제목 추가 -->
+          <video poster="" id="video6" autoplay controls muted loop width="100%">
+            <source src="assets/videos/baseline_3_500.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
+      <!-- 2x3 동영상 그리드 끝 -->
     </div>
   </div>
 </section>
 <!-- End of Simulation Experiments Videos -->
 
+<hr>
+
 <!-- Real-world Experiments Videos -->
- <section class="hero is-small"></section>
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Real-world Experiments</h2>
-      <div id="module">
-        <div id="real-results">
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Real-world Experiments</h2>
+        <p class = "description-text" style="text-align: justify;">
+          We conduct experiments in two different conditions: adaptation from a six-legged to a four-legged configuration on (1) a high-friction terrain (i.e., rubber mat) and (2) a low-friction terrain (i.e., fabric carpet)       
+          Intel RealSense D435 camera and AprilTag are used for real-world localization, tracking the movement of the robot throughout the process.
+        </p>
+
+          <h3 class="title is-4">Training Procedure</h3>
+          <p class = "description-text" style="text-align: justify;">
+            Each training session consists of 10 rollouts followed by an evaluation, and the process is repeated for 10 sessions, resulting in a total of 100 training episodes.
+          </p>
+          <!-- 추가 콘텐츠 예시 -->
           <div class="columns is-variable is-8 is-multiline">
             <div class="column is-half">
+              <h4 class="title is-5">High-Friction Terrain</h4>
               <video poster="" id="video1" autoplay controls muted loop width="100%">
-                <source src="assets/videos/video_7.mp4" type="video/mp4">
+                <source src="assets/videos/high_train.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
             <!-- 두 번째 비디오 -->
             <div class="column is-half">
+              <h4 class="title is-5">Low-Friction Terrain</h4>
               <video poster="" id="video2" autoplay controls muted loop width="100%">
-                <source src="assets/videos/video_8.mp4" type="video/mp4">
+                <source src="assets/videos/low_train.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
-          <!-- <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
-            <!-- Your video file here -->
-            <!-- <source src="assets/videos/video_7.mp4" type="video/mp4">
-          </video>
-          <h2 class="content has-text-justified" style="text-align: left;">
-            User interaction with the proposed system SPOTS. The user selects among the candidates, provided with a close consideration of stability and reasonableness, in an interactive viewer. SPOTS recommends the placement candidates based on the prompt of the task.
-          </h2> -->
-        </div>
+
+          <div style="height: 20px;"></div>
+          <h3 class="title is-4">Go Straight</h3>
+          <p class = "description-text" style="text-align: justify;">
+            <b>FLARE</b> learns forward locomotion in under 10 minutes of real-world training without simulation, using the trajectory distribution learned in unmodified conditions.          
+          </p>
+          <!-- 추가 콘텐츠 예시 -->
+          <div class="columns is-variable is-8 is-multiline">
+            <div class="column is-half">
+              <h4 class="title is-5">High-Friction Terrain</h4>
+              <video poster="" id="video1" autoplay controls muted loop width="100%">
+                <source src="assets/videos/high_straight.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- 두 번째 비디오 -->
+            <div class="column is-half">
+              <h4 class="title is-5">Low-Friction Terrain</h4>
+              <video poster="" id="video2" autoplay controls muted loop width="100%">
+                <source src="assets/videos/low_straight.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div style="height: 20px;"></div>
+          <h3 class="title is-4">Keyboard Teleoperation</h3>
+          <p class = "description-text" style="text-align: justify;">
+            Our walking policy allows us to model joint trajectory distributions, enabling us to collect additional data 
+            without further training. 
+            By simply sampling 50 additional joint trajectories from the trained walking policy, 
+            we can obtain the necessary trajectories for rotational movement.
+          </p>
+          <!-- 추가 콘텐츠 예시 -->
+          <div class="columns is-variable is-8 is-multiline">
+            <div class="column is-half">
+              <h4 class="title is-5">High-Friction Terrain</h4>
+              <video poster="" id="video1" autoplay controls muted loop width="100%">
+                <source src="assets/videos/high_object.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- 두 번째 비디오 -->
+            <div class="column is-half">
+              <h4 class="title is-5">Low-Friction Terrain</h4>
+              <video poster="" id="video2" autoplay controls muted loop width="100%">
+                <source src="assets/videos/low_object.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 <!-- End of Real-world Experiments Videos -->
 
 <!--BibTex citation -->

@@ -156,3 +156,7 @@ body {
   height: 100%;
   object-fit: cover;  /* This will ensure the aspect ratio is maintained */
 }
+
+.description-text {
+  margin-bottom: 20px; 
+}
